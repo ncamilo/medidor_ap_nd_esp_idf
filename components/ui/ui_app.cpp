@@ -34,6 +34,7 @@ void ui_app_task(void *arg)
             );
         }
 
-        vTaskDelay(pdMS_TO_TICKS(2000));
+        // vTaskDelay(pdMS_TO_TICKS(2000));
+        vTaskDelay(pdMS_TO_TICKS(10000));
     }
 }
