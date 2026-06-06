@@ -1,0 +1,11 @@
+idf_component_register(
+    SRCS
+        "ui_app.cpp"
+        "lvgl_v8_port.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        freertos
+        app_state
+        log
+)

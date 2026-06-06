@@ -1,0 +1,15 @@
+idf_component_register(
+    SRCS
+        "dyp_sensor.cpp"
+        "scale_sensor.cpp"
+        "bio_serial.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        driver
+        freertos
+        esp_timer
+        app_state
+        board_io
+        log
+)

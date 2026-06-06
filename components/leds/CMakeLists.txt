@@ -1,0 +1,12 @@
+idf_component_register(
+    SRCS
+        "neon_pwm.cpp"
+        "rgb_strip.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        driver
+        board_io
+        app_state
+        log
+)
