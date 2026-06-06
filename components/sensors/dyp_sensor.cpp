@@ -1,4 +1,5 @@
 #include "dyp_sensor.h"
+#include "esp_check.h"
 
 #include <stdint.h>
 

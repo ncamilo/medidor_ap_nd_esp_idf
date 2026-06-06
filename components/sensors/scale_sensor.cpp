@@ -1,4 +1,5 @@
 #include "scale_sensor.h"
+#include "esp_check.h"
 
 #include <ctype.h>
 #include <stdint.h>

@@ -1,4 +1,5 @@
 #include "app_state.h"
+#include "esp_check.h"
 
 #include <string.h>
 
