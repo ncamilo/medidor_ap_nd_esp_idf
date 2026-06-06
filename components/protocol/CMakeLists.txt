@@ -1,14 +1,12 @@
 idf_component_register(
     SRCS
-        "app_main.cpp"
+        "usb_protocol.cpp"
     INCLUDE_DIRS
-        "."
+        "include"
     REQUIRES
+        freertos
         app_state
-        board_io
-        storage
-        protocol
         sensors
-        ui
         leds
+        log
 )

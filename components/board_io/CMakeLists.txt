@@ -1,0 +1,11 @@
+idf_component_register(
+    SRCS
+        "board_io.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        driver
+        freertos
+        app_state
+        log
+)

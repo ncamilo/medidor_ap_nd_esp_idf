@@ -1,0 +1,10 @@
+idf_component_register(
+    SRCS
+        "calibration_storage.cpp"
+    INCLUDE_DIRS
+        "include"
+    REQUIRES
+        nvs_flash
+        app_state
+        log
+)
