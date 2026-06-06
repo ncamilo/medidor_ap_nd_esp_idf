@@ -1,16 +1,24 @@
-# ESP-IDF build
+# ESP-IDF build/generated
 build/
 managed_components/
+dependencies.lock
 sdkconfig.old
 
-# Python / venv
+# Firmware artifacts
+*.bin
+*.elf
+*.map
+*.hex
+*.uf2
+
+# Python / virtual env
 .venv/
 venv/
 __pycache__/
 *.pyc
 
-# IDEs
-.vscode/
+# IDE/cache
+.vscode/ipch/
 .idea/
 
 # OS
@@ -20,7 +28,9 @@ Thumbs.db
 # Logs
 *.log
 
-# Secrets
+# Secrets / credentials
 .env
 *.pem
 *.key
+*.crt
+*.p12
