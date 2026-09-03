@@ -167,6 +167,10 @@ void ui_app_task(void *arg)
                 ui_screens_set_orientation((int)state.orientation);
             }
 
+            if (first_update || state.calibration.calibrated != last.calibration.calibrated) {
+                ui_screens_set_calibrated(state.calibration.calibrated);
+            }
+
             first_update = false;
             last = state;
         }

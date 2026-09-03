@@ -10,9 +10,10 @@ esp_err_t ui_screens_create(void);
 
 void ui_screens_set_height(float height_m);
 void ui_screens_set_weight(float weight_kg);
-void ui_screens_set_status(const char *text);
+void ui_screens_set_calibrated(bool calibrated);
 void ui_screens_set_measurement_mode(int mode);
 void ui_screens_set_orientation(int orientation);
+void ui_screens_set_status(const char *text);
 
 #ifdef __cplusplus
 }
