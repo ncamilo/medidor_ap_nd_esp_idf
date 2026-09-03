@@ -2,6 +2,7 @@
 build/
 managed_components/
 dependencies.lock
+sdkconfig
 sdkconfig.old
 
 # Firmware artifacts
@@ -10,6 +11,9 @@ sdkconfig.old
 *.map
 *.hex
 *.uf2
+
+*.zip
+tree.txt
 
 # Python / virtual env
 .venv/
