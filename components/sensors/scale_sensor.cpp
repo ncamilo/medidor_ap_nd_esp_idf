@@ -47,8 +47,10 @@ static bool parse_weight_frame(const uint8_t *frame, size_t len, float *out_weig
 
 esp_err_t scale_sensor_init(void)
 {
-    if (!board_gpio_is_valid(BOARD_PIN_SCALE_TX) || !board_gpio_is_valid(BOARD_PIN_SCALE_RX)) {
-        ESP_LOGW(TAG, "UART balanca nao configurada em board_pins.h");
+    // A balanca pode operar apenas como transmissor serial, portanto somente
+    // o RX do ESP32 e obrigatorio para habilitar esta interface.
+    if (!board_gpio_is_valid(BOARD_PIN_SCALE_RX)) {
+        ESP_LOGW(TAG, "UART balanca sem RX configurado em board_pins.h");
         s_uart_ready = false;
         return ESP_OK;
     }
@@ -63,7 +65,18 @@ esp_err_t scale_sensor_init(void)
 
     ESP_ERROR_CHECK(uart_driver_install(BOARD_UART_SCALE, 2048, 0, 0, nullptr, 0));
     ESP_ERROR_CHECK(uart_param_config(BOARD_UART_SCALE, &config));
-    ESP_ERROR_CHECK(uart_set_pin(BOARD_UART_SCALE, BOARD_PIN_SCALE_TX, BOARD_PIN_SCALE_RX, UART_PIN_NO_CHANGE, UART_PIN_NO_CHANGE));
+
+    const int tx_pin = board_gpio_is_valid(BOARD_PIN_SCALE_TX)
+        ? BOARD_PIN_SCALE_TX
+        : UART_PIN_NO_CHANGE;
+
+    ESP_ERROR_CHECK(uart_set_pin(
+        BOARD_UART_SCALE,
+        tx_pin,
+        BOARD_PIN_SCALE_RX,
+        UART_PIN_NO_CHANGE,
+        UART_PIN_NO_CHANGE
+    ));
 
     s_uart_ready = true;
     ESP_LOGI(TAG, "UART balanca inicializada");
